@@ -74,7 +74,7 @@ psutil==5.9.4
 pure-eval==0.2.2
 pyasn1==0.4.8
 pycodestyle==2.10.0
-pydantic==1.10.5
+pydantic==1.10.13
 pyflakes==3.0.1
 Pygments==2.14.0
 pyright==1.1.300
