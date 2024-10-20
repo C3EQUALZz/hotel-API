@@ -38,9 +38,7 @@ services:
     build:
       context: . # celery это библиотека, у неё нет образа, берём из основного билда
     container_name: booking_celery
-    # Если не работает эта команда, используйте закомментированную
-    command: ["/booking/docker/celery.sh", "celery"] # Второй аргумен для if/elif в скрипте
-    # command: sh -c "celery --app=app.tasks.celery:celery worker -l INFO"
+    command: sh -c "celery --app=app.tasks.celery:celery worker -l INFO"
     env_file:
       - .env-non-dev
     depends_on:
@@ -52,8 +50,8 @@ services:
       context: . # flower это библиотека, у неё нет образа, берём из основного билда
     container_name: booking_flower
     # Если не работает эта команда, используйте закомментированную
-    command: ["/booking/docker/celery.sh", "flower"]
-    # command: sh -c "celery --app=app.tasks.celery:celery flower"
+    # command: ["/booking/docker/celery.sh", "flower"]
+    command: sh -c "celery --app=app.tasks.celery:celery flower"
     env_file:
       - .env-non-dev
     depends_on:
